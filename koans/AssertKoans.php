@@ -13,7 +13,7 @@ class AssertKoans extends TestCase
     public function testAssertTruth()
     {
         // Change "false" to "true"
-        $this->assertTrue(false);
+        $this->assertTrue(true);
     }
 
     /**
@@ -22,7 +22,7 @@ class AssertKoans extends TestCase
     public function testAssertWithMessage()
     {
         // Change "false" to "true"
-        $this->assertTrue(false, "This should be True, please fix this");
+        $this->assertTrue(true, "This should be True, please fix this");
     }
 
     /**
@@ -31,7 +31,7 @@ class AssertKoans extends TestCase
     public function testFillInValues()
     {
         // Replace __ with your answer
-        $this->assertEquals(__, 1+1);
+        $this->assertEquals(2, 1+1);
     }
 
     /**
@@ -39,7 +39,7 @@ class AssertKoans extends TestCase
      */
     public function testAssertEquality()
     {
-        $expected_value = __; // Replace __ with your answer
+        $expected_value = 2; // Replace __ with your answer
         $actual_value = 1 + 1;
 
         $this->assertTrue($expected_value == $actual_value);
@@ -50,7 +50,7 @@ class AssertKoans extends TestCase
      */
     public function testABetterWayToAssertEquality()
     {
-        $expected_value = __; // Replace __ with your answer
+        $expected_value = 2; // Replace __ with your answer
         $actual_value = 1 + 1;
 
         $this->assertEquals($expected_value, $actual_value);
@@ -61,7 +61,7 @@ class AssertKoans extends TestCase
      */
     public function testSometimesWeNeedToKnowTheVariableType()
     {
-        $this->assertEquals(__, gettype("What am I"));
+        $this->assertEquals('string', gettype("What am I"));
     }
 
     /**
@@ -72,7 +72,7 @@ class AssertKoans extends TestCase
         // See bottom of this file for class definition
         $object = new Enlightenment();
 
-        $this->assertEquals(__, get_class($object));
+        $this->assertEquals('PhpKoans\Enlightenment', get_class($object));
     }
 }
 

@@ -15,7 +15,7 @@ class StringManipulationKoans extends TestCase
         $value = "one";
         $string = "The value is $value";
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is one', $string);
     }
 
     /**
@@ -26,7 +26,7 @@ class StringManipulationKoans extends TestCase
         $value = "one";
         $string = 'The value is $value';
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is $value', $string);
     }
 
     /**
@@ -37,7 +37,7 @@ class StringManipulationKoans extends TestCase
         $value = "one";
         $string = "The value is {$value}";
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is one', $string);
     }
 
     /**
@@ -48,7 +48,7 @@ class StringManipulationKoans extends TestCase
         $values = ["test" => "one", "foo" => "two"];
         $string = "The value is {$values["test"]}";
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is one', $string);
     }
 
     /**
@@ -61,7 +61,7 @@ class StringManipulationKoans extends TestCase
 The value is $value
 EOT;
         // Hint: First and last line breaks of a Heredoc don't count
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is one', $string);
     }
 
     /**
@@ -74,7 +74,7 @@ EOT;
 The value is $value
 EOT;
         // Hint: First and last line breaks of a Heredoc don't count
-        $this->assertEquals(__, $string);
+        $this->assertEquals('The value is $value', $string);
     }
 
     /**
@@ -86,7 +86,7 @@ EOT;
 
         $string = sprintf('He bought a %s.', $product);
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('He bought a banana.', $string);
     }
 
     /**
@@ -101,7 +101,7 @@ EOT;
         // Be careful of the default floating point precision (6 decimal places)
         $string = sprintf('He bought %d %s for $%f.', $quantity, $product, $pricePer);
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('He bought 3 bananas for $2.500000.', $string);
     }
 
     /**
@@ -121,7 +121,7 @@ EOT;
             $pricePer
         );
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('He bought 3 bananas for $2.50 each, but those 3 bananas were not worth the price.', $string);
     }
 
     /**
@@ -131,7 +131,7 @@ EOT;
     {
         $string = "Bacon, lettuce and tomato";
 
-        $this->assertEquals(__, substr($string, 7, 10));
+        $this->assertEquals('lettuce an', substr($string, 7, 10));
     }
 
     /**
@@ -141,7 +141,7 @@ EOT;
     {
         $string = "Bacon, lettuce and tomato";
 
-        $this->assertEquals(__, $string[1]);
+        $this->assertEquals('a', $string[1]);
     }
 
     /**
@@ -152,7 +152,7 @@ EOT;
         $string = "Sausage Egg Cheese";
         $words = explode(" ", $string);
 
-        $this->assertEquals([__, __, __], $words);
+        $this->assertEquals(['Sausage', 'Egg', 'Cheese'], $words);
     }
 
     /**
@@ -163,7 +163,7 @@ EOT;
         $words = ["Now", "is", "the", "time"];
         $string = implode(" ", $words);
 
-        $this->assertEquals(__, $string);
+        $this->assertEquals('Now is the time', $string);
     }
 
     /**
@@ -171,8 +171,8 @@ EOT;
      */
     public function testChangeCaseOfStrings()
     {
-        $this->assertEquals(__, ucwords('one hand clap'));
-        $this->assertEquals(__, strtoupper('one hand clap'));
-        $this->assertEquals(__, strtolower('Sausage EGG Cheese'));
+        $this->assertEquals('One Hand Clap', ucwords('one hand clap'));
+        $this->assertEquals('ONE HAND CLAP', strtoupper('one hand clap'));
+        $this->assertEquals('sausage egg cheese', strtolower('Sausage EGG Cheese'));
     }
 }
